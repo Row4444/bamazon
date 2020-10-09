@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ object.first_name }} {{ object.last_name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.first_name }} {{ object.last_name }}</h1>
+    <center>
+    {% if object.image %}
+        <img src="{{ object.image.url }}" alt="avatar">
+    {% endif %}
+        <img src="/media/anon_author.png" alt="not-avatar">
+        <h4>Dates of life</h4>
+        <i>{{ object.date_of_birth|date:'d-m-Y' }} - 
+        {% if object.date_of_death %}
+             </i> {{ object.date_of_death|date:'d-m-Y' }}
+        {% else %}
+            ∞
+        {% endif %} 
+
+    </center>
+
+{% endblock %}

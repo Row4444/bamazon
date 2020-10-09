@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Books
+{% endblock %}
+
+{% block content %}
+<h1>Books</h1>
+{% include 'snippets/book_card.html' with list=object_list %}
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
+{% endblock %}
